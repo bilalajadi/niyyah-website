@@ -1,0 +1,12 @@
+# Niyyah — robots.txt
+# Production rules. For staging/preview hosts, replace this file with:
+#   User-agent: *
+#   Disallow: /
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://niyyah.app/sitemap.xml
+Host: https://niyyah.app
