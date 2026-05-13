@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ── PRIMARY ─────────────────────────────────────────────── -->
+<title>Niyyah — Live Islam practically. 5 minutes a day.</title>
+<meta name="description" content="The app to live Islam, not just learn it. Scholar-verified daily lessons on the questions Muslims actually have, reviewed by Sheikh Hussan Mahmood.">
+<link rel="canonical" href="https://niyyah.app/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#E8854A"><!-- brand --orange from design system tokens; do not hardcode elsewhere -->
+<!-- TODO: Confirm production domain. {{CANONICAL_BASE_URL}} currently set to https://niyyah.app -->
+<!-- TODO: Missing icons — favicon.ico (32×32), apple-touch-icon.png (180×180), icon.png, manifest.webmanifest. Designer to provide. -->
+<!-- NOTE: Static-HTML deploy (no Next.js, no build env). For staging, swap the robots <meta> above to "noindex, nofollow" before deploying to a non-production host. -->
+
+<!-- ── OPEN GRAPH ──────────────────────────────────────────── -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Niyyah">
+<meta property="og:title" content="Live Islam practically. 5 minutes a day.">
+<meta property="og:description" content="Scholar-verified daily Islamic lessons on the questions Muslims actually have — marriage, money, anxiety, prayer. Reviewed by Sheikh Hussan Mahmood.">
+<meta property="og:url" content="https://niyyah.app/">
+<meta property="og:locale" content="en_US">
+<!-- TODO: Replace placeholder og-image.png (1200×630, ≤300KB, sRGB) -->
+<meta property="og:image" content="https://niyyah.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Niyyah — the app to live Islam, not just learn it.">
+
+<!-- ── TWITTER CARD ────────────────────────────────────────── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Live Islam practically. 5 minutes a day.">
+<meta name="twitter:description" content="Scholar-verified daily Islamic lessons on the questions Muslims actually have. Reviewed by Sheikh Hussan Mahmood.">
+<meta name="twitter:image" content="https://niyyah.app/og-image.png">
+<meta name="twitter:image:alt" content="Niyyah — the app to live Islam, not just learn it.">
+<!-- TODO: Confirm Twitter handle once social profiles are live -->
+<meta name="twitter:site" content="@{{TWITTER_HANDLE_PLACEHOLDER}}">
+
+<!-- ── FONTS ───────────────────────────────────────────────── -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- ── STRUCTURED DATA: SoftwareApplication ────────────────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Niyyah",
+  "alternateName": "Niyyah — The app to live Islam, not just learn it",
+  "applicationCategory": "LifestyleApplication",
+  "applicationSubCategory": "Education",
+  "operatingSystem": "iOS, Android",
+  "description": "The app to live Islam, not just learn it. Scholar-verified daily lessons on the questions Muslims actually have, reviewed by Sheikh Hussan Mahmood.",
+  "url": "https://niyyah.app/",
+  "image": "https://niyyah.app/og-image.png",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "674",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "offers": [
+    { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+    {
+      "@type": "Offer",
+      "name": "Basic",
+      "price": "1.49",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "1.49",
+        "priceCurrency": "USD",
+        "billingDuration": "P1M"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Premium",
+      "price": "7.99",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "7.99",
+        "priceCurrency": "USD",
+        "billingDuration": "P1M"
+      }
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Guider App Ltd"
+  }
+}
+</script>
+
+<!-- ── STRUCTURED DATA: FAQPage (mirrors visible FAQ word-for-word) ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is Niyyah different from other Islamic apps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Islamic apps are reference tools — you look something up, then close them. Niyyah is built around a daily five-minute practice: scholar-reviewed lessons on real-life topics, a prayer companion, and habit-building rooted in the Quran and Sunnah. It's designed to change how you live your deen, not just what you look up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who reviews the content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every lesson on Niyyah is reviewed by Sheikh Hussan Mahmood before it reaches you. AI helps us produce content at speed; the Sheikh ensures every word is faithful to the sources and useful in real life."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which madhab does Niyyah follow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Niyyah serves Muslims across all four major madhabs — Hanafi, Maliki, Shafi'i, and Hanbali. Where rulings differ between schools, we surface the relevant positions clearly. You're never locked into one perspective."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I'm a revert or new to Islam — is this for me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Niyyah was built with reverts and beginners in mind. No assumed prior knowledge. No judgment. No gatekeeping. Start exactly where you are. The 'New to Islam' topic path is a great first stop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I'm a busy professional with no time. Does five minutes really do anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Five minutes a day, every day, is the practice. The app is built around the reality that you're not going to find a free hour — and you don't need to. Consistent small steps, rooted in the Quran and reviewed by a scholar, are how a daily relationship with your deen is actually built."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between Basic and Premium?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Basic ($1.49/mo) gives you the full content library and prayer companion — everything you need to build the daily reading habit. Premium ($7.99/mo) adds AI chat to discuss any lesson, Ask Anything for open Islamic Q&A, and the upcoming audio, offline, and human scholar features. Basic is enough for most Muslims. Premium is for those who want to go deeper."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel anytime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, always. Cancel directly through your App Store or Google Play subscription settings at any time. If you cancel, your paid access continues until the end of the current billing period. No emails, no friction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's coming next?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tafsir panel (read any ayah and pull out scholarly commentary), audio lessons (listen on the commute), offline access (for travel and Hajj), and Ask a Scholar (real human scholar responses, async). All in the next few months. We ship the daily practice first."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ── STRUCTURED DATA: Organization ───────────────────────── -->
+<!-- TODO: Add Person schema for Sheikh Hussan Mahmood once credentials confirmed (institution bio URL, scholar registry, etc.) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Guider App Ltd",
+  "alternateName": "Niyyah",
+  "url": "https://niyyah.app/",
+  "logo": "https://niyyah.app/niyyah-logo-black.png",
+  "email": "connect@niyyah.app"
+}
+</script>
+<!-- TODO: Add "sameAs": [<social URLs>] to Organization schema once Twitter/IG/TikTok/YouTube profiles are live. Empty placeholders are worse than absence. -->
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root{
+  --orange:#E8854A;--orange-soft:rgba(232,133,74,.08);--orange-border:rgba(232,133,74,.22);--orange-strong:#C56A35;
+  --coral:#D4607A;--coral-soft:rgba(212,96,122,.06);--coral-border:rgba(212,96,122,.18);
+  --teal:#3CB89A;--teal-soft:rgba(60,184,154,.08);--teal-border:rgba(60,184,154,.22);--teal-deep:#1a8a50;
+  --purple:#7B6BAE;--purple-soft:rgba(123,107,174,.06);--purple-border:rgba(123,107,174,.18);
+  --gold:#c8a84e;--gold-soft:rgba(200,168,78,.08);--gold-border:rgba(200,168,78,.22);--gold-deep:#8a7234;
+  --bg1:#f9f8f4;--bg2:#f1f0eb;--cream:#faf8f0;--card:#ffffff;
+  --fg1:#1a1a18;--fg2:#4a4a42;--fg3:#8a8a80;--fg4:#b0b0a4;--fg-dark:#e8e6df;
+  --border:#e6e5de;--border-soft:#eeedea;--border-strong:#d4d3cb;
+  --shadow-1:0 1px 3px rgba(0,0,0,.04);--shadow-2:0 2px 8px rgba(0,0,0,.04);--shadow-3:0 4px 14px rgba(0,0,0,.06);
+  --r-sm:8px;--r-md:10px;--r-lg:14px;--r-xl:16px;--r-2xl:20px;--r-full:999px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --hero-bg:#0c0b09;
+  --font-ui:'DM Sans',system-ui,sans-serif;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-arabic:'Scheherazade New','Amiri',Georgia,serif;
+}
+
+/* ── RESET ────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-ui);color:var(--fg1);background:var(--bg1);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* ── TYPOGRAPHY ───────────────────────────────────────────── */
+.display{font-family:var(--font-display);font-weight:400;font-size:clamp(38px,5.2vw,64px);line-height:1.1;letter-spacing:-.02em;color:var(--fg1)}
+.display em{font-style:italic;color:var(--orange)}
+.h2-display{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,3.5vw,42px);line-height:1.15;letter-spacing:-.015em;color:var(--fg1)}
+.h2-display em{font-style:italic;color:var(--orange)}
+.h3{font-family:var(--font-ui);font-weight:600;font-size:20px;line-height:1.3;color:var(--fg1)}
+.body{font-size:17px;line-height:1.65;color:var(--fg2)}
+.body-sm{font-size:15px;line-height:1.6;color:var(--fg2)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+.arabic-verse{font-family:var(--font-arabic);font-size:clamp(22px,3vw,30px);line-height:1.9;color:var(--gold-deep);direction:rtl;text-align:right}
+
+/* ── LAYOUT ───────────────────────────────────────────────── */
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.section-sm{padding:64px 0}
+.section-header{text-align:center;margin-bottom:56px}
+.section-header .eyebrow{margin-bottom:12px}
+
+/* ── BUTTONS ──────────────────────────────────────────────── */
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 30px;background:var(--orange);color:#fff;font-size:16px;font-weight:600;border-radius:var(--r-lg);box-shadow:0 4px 20px rgba(232,133,74,.35);transition:transform var(--ease) 150ms,box-shadow var(--ease) 150ms,background 150ms}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(232,133,74,.45);background:var(--orange-strong)}
+.btn-primary:active{transform:scale(.97)}
+.btn-primary-light{display:inline-flex;align-items:center;gap:8px;padding:16px 30px;background:var(--orange);color:#fff;font-size:16px;font-weight:600;border-radius:var(--r-lg);box-shadow:0 4px 20px rgba(232,133,74,.28);transition:transform var(--ease) 150ms,box-shadow var(--ease) 150ms}
+.btn-primary-light:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(232,133,74,.4)}
+.btn-ghost-light{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;background:transparent;color:var(--fg1);font-size:16px;font-weight:500;border-radius:var(--r-lg);border:1px solid var(--border-strong);transition:border-color 150ms,background 150ms}
+.btn-ghost-light:hover{background:var(--bg2);border-color:var(--border-strong)}
+
+/* ── BADGE ────────────────────────────────────────────────── */
+.badge-verified{display:inline-flex;align-items:center;gap:5px;background:var(--teal-soft);border:.5px solid var(--teal-border);padding:4px 10px;border-radius:var(--r-sm);color:var(--teal-deep);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.badge-verified::before{content:"✓";font-size:9px}
+.coming-soon-pill{display:inline-flex;align-items:center;background:var(--bg2);border:.5px solid var(--border);padding:3px 10px;border-radius:var(--r-full);color:var(--fg3);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+
+/* ── SCROLL REVEAL ────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+.reveal-delay-4{transition-delay:.32s}
+.reveal-delay-5{transition-delay:.4s}
+.reveal-delay-6{transition-delay:.48s}
+
+/* ══════════════════════════════════════════════════════════ */
+/* NAV                                                        */
+/* ══════════════════════════════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 24px;
+  transition:background .4s var(--ease),box-shadow .4s var(--ease),backdrop-filter .4s;
+}
+#nav.scrolled{background:rgba(249,248,244,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border-soft)}
+.nav-inner{max-width:1160px;margin:0 auto;height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:15px;font-weight:500;color:var(--fg3);transition:color .2s}
+.nav-links a:hover{color:var(--fg1)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-cta .btn-primary{padding:10px 22px;font-size:15px}
+.nav-signin{font-size:14px;font-weight:500;color:var(--fg3);transition:color .2s}
+.nav-signin:hover{color:var(--fg1)}
+.nav-burger{display:none;width:38px;height:38px;border-radius:10px;border:.5px solid var(--border);background:rgba(255,255,255,.6);align-items:center;justify-content:center}
+.nav-burger span{display:block;width:18px;height:1.5px;background:var(--fg1);position:relative}
+.nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--fg1)}
+.nav-burger span::before{top:-6px}.nav-burger span::after{top:6px}
+.nav-drawer{position:fixed;inset:0;background:rgba(249,248,244,.98);backdrop-filter:blur(24px);z-index:200;display:none;flex-direction:column;padding:24px}
+.nav-drawer.open{display:flex}
+.nav-drawer-top{display:flex;align-items:center;justify-content:space-between;height:44px}
+.nav-drawer-close{width:38px;height:38px;border-radius:10px;border:.5px solid var(--border);font-size:20px;color:var(--fg1);background:#fff}
+.nav-drawer-links{flex:1;display:flex;flex-direction:column;gap:6px;justify-content:center;padding:0 4px}
+.nav-drawer-links a{font-family:var(--font-display);font-size:30px;font-weight:500;color:var(--fg1);padding:10px 0}
+.nav-drawer-bottom{padding:0 4px 12px}
+.nav-drawer-bottom .btn-primary{width:100%;justify-content:center;padding:18px}
+
+/* ══════════════════════════════════════════════════════════ */
+/* HERO                                                       */
+/* ══════════════════════════════════════════════════════════ */
+#hero{
+  position:relative;background:var(--bg1);overflow:hidden;
+  padding:140px 24px 88px;
+}
+.hero-pattern{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.06;
+  -webkit-mask:linear-gradient(180deg,transparent 0,#000 12%,#000 80%,transparent 100%);
+  mask:linear-gradient(180deg,transparent 0,#000 12%,#000 80%,transparent 100%);
+  animation:hero-drift 90s linear infinite;
+}
+.hero-glow{position:absolute;inset:0;pointer-events:none;z-index:1;
+  --mx:50%;--my:40%;
+  background:radial-gradient(420px circle at var(--mx) var(--my),rgba(232,133,74,.18),rgba(212,96,122,.08) 35%,transparent 70%);
+  opacity:0;transition:opacity .8s var(--ease);
+  mix-blend-mode:multiply;
+}
+#hero.glow-on .hero-glow{opacity:1}
+@keyframes hero-drift{0%{background-position:0 0}100%{background-position:560px 560px}}
+.hero-pattern svg{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);color:var(--orange)}
+.hero-inner{max-width:1160px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.05fr 1fr;gap:72px;align-items:center;position:relative;z-index:2}
+.hero-eyebrow{display:inline-block;margin-bottom:22px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);background:var(--orange-soft);border:.5px solid var(--orange-border);padding:6px 12px;border-radius:var(--r-full)}
+.hero-h1{font-family:var(--font-display);font-weight:400;font-size:clamp(44px,5.6vw,72px);line-height:1.04;letter-spacing:-.025em;color:var(--fg1);margin-bottom:24px}
+.hero-h1 em{display:block;font-style:italic;font-size:.84em;background:linear-gradient(110deg,var(--orange) 0%,var(--coral) 65%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:18px;line-height:1.6;color:var(--fg2);margin-bottom:34px;max-width:520px}
+.hero-ctas{margin-bottom:28px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.hero-cta-note{font-size:13px;color:var(--fg3)}
+.hero-trust-strip{display:flex;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--fg2);padding-top:22px;border-top:.5px solid var(--border)}
+.hero-trust-strip strong{color:var(--fg1);font-weight:600}
+.hero-trust-stars{color:var(--gold);font-size:13px;letter-spacing:1px;margin-right:4px}
+.hero-trust-divider{width:1px;height:14px;background:var(--border-strong);flex-shrink:0}
+
+/* ── PHONE FRAME (shared with prayer section) ─────────────── */
+.hero-phone-wrap{position:relative;display:flex;justify-content:center;align-items:center;z-index:3}
+.phone-frame{
+  width:300px;height:616px;
+  background:var(--card);
+  border-radius:52px;
+  border:1.5px solid var(--border-strong);
+  box-shadow:0 0 0 6px var(--bg2),0 40px 80px rgba(0,0,0,.1),0 8px 24px rgba(0,0,0,.05);
+  overflow:hidden;position:relative;
+  animation:phone-float 7s ease-in-out infinite;
+}
+@keyframes phone-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:110px;height:36px;background:var(--card);border-radius:0 0 22px 22px;z-index:10;border-bottom:.5px solid var(--border-soft)}
+.phone-screen-wrap{position:absolute;inset:0;border-radius:50px;overflow:hidden}
+.phone-s{position:absolute;inset:0;background:var(--bg1);padding-top:50px;opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease),transform .6s var(--ease);pointer-events:none;overflow:hidden}
+.phone-s.active{opacity:1;transform:translateY(0)}
+.ps-bar{padding:0 20px 6px;display:flex;justify-content:space-between;align-items:center}
+.ps-time{font-size:12px;font-weight:600;color:var(--fg1)}
+.ps-icons{font-size:10px;color:var(--fg3)}
+.ps-hdr{padding:8px 20px 14px;display:flex;justify-content:space-between;align-items:center}
+.ps-greet{font-size:10px;color:var(--fg3);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.ps-name{font-size:18px;font-weight:700;color:var(--fg1);font-family:var(--font-display)}
+.ps-streak{display:flex;align-items:center;gap:4px;background:rgba(232,133,74,.1);border:.5px solid var(--orange-border);padding:5px 10px;border-radius:var(--r-full);font-size:13px;font-weight:700;color:var(--orange)}
+.ps-verse{margin:0 14px 12px;background:var(--cream);border-radius:16px;padding:14px 16px;border:.5px solid var(--gold-border);box-shadow:var(--shadow-2)}
+.ps-verse-top{display:flex;justify-content:space-between;margin-bottom:8px}
+.ps-ve{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--orange);background:rgba(232,133,74,.1);padding:3px 8px;border-radius:6px}
+.ps-vr{font-size:10px;color:var(--fg3)}
+.ps-va{font-family:var(--font-arabic);font-size:18px;color:var(--gold-deep);direction:rtl;text-align:right;margin-bottom:7px;line-height:1.9}
+.ps-vt{font-size:10px;color:var(--fg2);font-style:italic;line-height:1.5}
+.ps-ctapill{margin:0 14px 12px;background:var(--orange);color:#fff;border-radius:12px;padding:11px 14px;display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;box-shadow:0 4px 12px rgba(232,133,74,.3)}
+.ps-ctapill .arr{font-size:13px}
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px}
+.ps-tile{border-radius:12px;padding:12px;border:.5px solid transparent;transition:transform .15s ease,box-shadow .15s ease}.ps-tile:hover{transform:scale(1.04);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.ps-tile-icon{font-size:16px;margin-bottom:6px}
+.ps-tile-name{font-size:11px;font-weight:600;color:var(--fg1);margin-bottom:2px;line-height:1.2}
+.ps-tile-meta{font-size:9px;color:var(--fg3)}
+.ps-tile.o{background:var(--orange-soft);border-color:var(--orange-border)}
+.ps-tile.t{background:var(--teal-soft);border-color:var(--teal-border)}
+.ps-tile.c{background:var(--coral-soft);border-color:var(--coral-border)}
+.ps-tile.p{background:var(--purple-soft);border-color:var(--purple-border)}
+
+/* ── Lesson card (mid-flow) screen ─────────────────────────── */
+.ps-progress{padding:0 14px 12px;display:flex;gap:3px}
+.ps-progress span{height:3px;flex:1;border-radius:2px;background:rgba(232,133,74,.18)}
+.ps-progress span.on{background:var(--orange)}
+.ps-lesson-meta{padding:0 18px 8px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--fg3)}
+.ps-lesson-meta strong{color:var(--fg1);font-weight:600}
+.ps-take{margin:0 14px 12px;background:#fff;border:.5px solid var(--border);border-radius:14px;padding:14px;box-shadow:var(--shadow-1)}
+.ps-take-eyebrow{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);margin-bottom:10px}
+.ps-sheikh{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:.5px solid var(--border-soft);margin-bottom:10px}
+.ps-sheikh-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple-soft),var(--orange-soft));border:.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--purple);flex-shrink:0}
+.ps-sheikh-name{font-size:11px;font-weight:600;color:var(--fg1);line-height:1.2}
+.ps-sheikh-role{font-size:9px;color:var(--fg3);margin-top:1px}
+.ps-take-body{font-size:10px;color:var(--fg2);line-height:1.65}
+.ps-take-body em{font-style:italic;color:var(--fg1)}
+
+/* ── Prayer screen (hero + prayer section) ─────────────────── */
+.ps-prayer-hdr{padding:8px 18px 10px}
+.ps-prayer-eyebrow{font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.ps-prayer-title{font-size:18px;font-weight:700;color:var(--fg1);font-family:var(--font-display);margin-top:1px}
+.ps-prayer-loc{font-size:10px;color:var(--fg3)}
+.ps-next{margin:0 14px 10px;background:linear-gradient(120deg,var(--orange),var(--coral));border-radius:14px;padding:12px 14px;color:#fff;display:flex;justify-content:space-between;align-items:center}
+.ps-next-label{font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;opacity:.85}
+.ps-next-name{font-size:14px;font-weight:700;line-height:1.2;margin-top:2px}
+.ps-next-time{font-size:18px;font-family:var(--font-display);font-weight:500}
+.ps-prayer-list{margin:0 14px 10px;background:#fff;border:.5px solid var(--border);border-radius:12px;overflow:hidden}
+.ps-prayer-row{display:flex;align-items:center;gap:9px;padding:8px 12px;border-bottom:.5px solid var(--border-soft);font-size:10px}
+.ps-prayer-row:last-child{border-bottom:none}
+.ps-prayer-row.now{background:var(--orange-soft)}
+.ps-prayer-row .dot{width:14px;height:14px;border-radius:50%;border:.5px solid var(--border-strong);background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px}
+.ps-prayer-row.done .dot{background:var(--teal);border-color:var(--teal);color:#fff}
+.ps-prayer-row.now .dot{background:var(--orange);border-color:var(--orange)}
+.ps-prayer-row .name{flex:1;font-weight:600;color:var(--fg1)}
+.ps-prayer-row .time{color:var(--fg3)}
+.ps-prayer-row.now .time{color:var(--orange);font-weight:600}
+.ps-prayer-bottom{margin:0 14px;display:flex;gap:8px}
+.ps-streak-ring{flex:1;background:var(--cream);border:.5px solid var(--gold-border);border-radius:12px;padding:9px 11px;display:flex;align-items:center;gap:9px}
+.ps-ring{width:34px;height:34px;border-radius:50%;background:conic-gradient(var(--gold) 0 calc(6/7*360deg),rgba(200,168,78,.15) 0);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.ps-ring::before{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--cream)}
+.ps-ring span{position:relative;font-size:10px;font-weight:700;color:var(--gold-deep)}
+.ps-ring-label{font-size:8px;color:var(--gold-deep);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.ps-ring-meta{font-size:11px;font-weight:700;color:var(--fg1);margin-top:1px;font-family:var(--font-display)}
+.ps-qibla{flex:1;background:#fff;border:.5px solid var(--border);border-radius:12px;padding:9px 11px;display:flex;align-items:center;gap:9px}
+.ps-compass{width:34px;height:34px;border-radius:50%;border:.5px solid var(--border-strong);background:radial-gradient(circle at 50% 100%,var(--orange-soft),#fff 60%);position:relative;flex-shrink:0}
+.ps-compass::before{content:"";position:absolute;left:50%;top:6px;bottom:50%;width:1.5px;background:var(--orange);transform:translateX(-50%) rotate(28deg);transform-origin:bottom center}
+.ps-qibla-label{font-size:8px;color:var(--fg3);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.ps-qibla-deg{font-size:11px;font-weight:700;color:var(--fg1);margin-top:1px;font-family:var(--font-display)}
+
+.phone-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:20}
+.phone-dot{width:6px;height:6px;border-radius:50%;background:var(--border-strong);transition:background .3s,transform .3s}
+.phone-dot.on{background:var(--orange);transform:scale(1.25)}
+
+/* ══════════════════════════════════════════════════════════ */
+/* PROBLEM                                                    */
+/* ══════════════════════════════════════════════════════════ */
+#problem{padding:140px 24px;background:var(--bg1)}
+.problem-inner{max-width:720px;margin:0 auto;text-align:center}
+.problem-eyebrow{margin-bottom:32px}
+.problem-quote{font-family:var(--font-display);font-style:italic;font-size:clamp(30px,4vw,46px);font-weight:400;line-height:1.25;letter-spacing:-.015em;color:var(--fg1);margin-bottom:28px;position:relative;padding:0 12px}
+.problem-quote::before,.problem-quote::after{content:"";display:inline-block;width:3px;background:var(--orange);height:32px;vertical-align:middle;margin:0 14px;border-radius:2px;opacity:.6}
+.problem-quote::before{display:none}
+.problem-rule{width:48px;height:2px;background:var(--orange);margin:0 auto 22px;border-radius:2px}
+.problem-sub{font-family:var(--font-display);font-size:clamp(20px,2.4vw,28px);color:var(--orange);font-style:italic;font-weight:500;margin-bottom:36px;letter-spacing:-.005em}
+.problem-body{font-size:17px;line-height:1.7;color:var(--fg2);max-width:600px;margin:0 auto}
+
+/* ══════════════════════════════════════════════════════════ */
+/* CATEGORY CLAIM                                             */
+/* ══════════════════════════════════════════════════════════ */
+#category{padding:120px 24px;background:#fff;border-top:.5px solid var(--border-soft);border-bottom:.5px solid var(--border-soft)}
+.category-inner{max-width:880px;margin:0 auto;text-align:center}
+.category-eyebrow{margin-bottom:36px}
+.category-stack{display:flex;flex-direction:column;gap:6px;margin-bottom:48px}
+.category-line{font-family:var(--font-display);font-weight:400;font-style:italic;font-size:clamp(40px,6.2vw,80px);line-height:1.05;letter-spacing:-.025em;color:var(--fg1)}
+.category-line.accent{color:var(--orange)}
+.category-body{font-size:17px;line-height:1.75;color:var(--fg2);max-width:680px;margin:0 auto}
+
+/* ══════════════════════════════════════════════════════════ */
+/* SHEIKH (Trusted contributors carousel)                      */
+/* ══════════════════════════════════════════════════════════ */
+#sheikh{padding:120px 24px;background:var(--cream);position:relative;overflow:hidden}
+.sheikh-bg-glow{position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(200,168,78,.12),transparent 70%);top:-200px;right:-160px;pointer-events:none}
+.sheikh-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+
+/* Section header */
+.sheikh-header{max-width:760px;margin:0 auto 64px;text-align:center}
+.sheikh-header .eyebrow{margin-bottom:14px}
+.sheikh-h2{font-family:var(--font-display);font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.15;letter-spacing:-.02em;color:var(--fg1);margin-bottom:22px}
+.sheikh-h2 em{font-style:italic;color:var(--orange)}
+.sheikh-lede{font-size:17px;line-height:1.65;color:var(--fg2);max-width:620px;margin:0 auto}
+
+/* Carousel */
+.sheikh-carousel{position:relative}
+.sheikh-stage{display:grid;align-items:center}
+.sheikh-slide{grid-area:1 / 1;display:grid;grid-template-columns:.8fr 1fr;gap:72px;align-items:center;opacity:0;transform:translateY(8px);transition:opacity .55s var(--ease),transform .55s var(--ease);pointer-events:none}
+.sheikh-slide.is-active{opacity:1;transform:none;pointer-events:auto}
+
+/* Photo */
+.sheikh-photo-wrap{position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,var(--purple-soft),var(--orange-soft) 60%,var(--cream));border:.5px solid var(--gold-border);box-shadow:0 24px 60px rgba(138,114,52,.18)}
+.sheikh-photo-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block}
+.sheikh-photo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:32px;color:var(--gold-deep);font-family:var(--font-display)}
+.sheikh-photo-mono{font-size:88px;font-style:italic;line-height:1;margin-bottom:14px;background:linear-gradient(120deg,var(--gold-deep),var(--orange-strong));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:500}
+.sheikh-photo-cap{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--font-ui);font-weight:600;color:var(--fg3)}
+.sheikh-photo-replace{position:absolute;left:14px;bottom:12px;background:rgba(255,255,255,.85);border:.5px dashed var(--border-strong);padding:5px 9px;border-radius:6px;font-size:10px;color:var(--fg3);font-weight:600}
+
+/* Text column */
+.sheikh-text{min-width:0}
+.sheikh-specialism{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);background:rgba(200,168,78,.14);border:.5px solid var(--gold-border);padding:6px 12px;border-radius:100px;margin-bottom:18px}
+.sheikh-specialism::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.sheikh-name{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.018em;color:var(--fg1);margin-bottom:6px}
+.sheikh-postnominal{font-size:.5em;color:var(--gold-deep);font-style:italic;letter-spacing:.04em;margin-left:8px;vertical-align:middle;font-family:var(--font-ui);font-weight:600}
+.sheikh-role{font-size:14px;font-weight:500;color:var(--fg2);margin-bottom:24px;letter-spacing:.005em}
+.sheikh-credentials{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:0;padding:18px 20px;background:rgba(255,255,255,.55);border:.5px solid var(--gold-border);border-radius:14px;max-width:560px}
+.sheikh-credentials li{font-size:14px;color:var(--fg2);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.sheikh-credentials li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:8px;flex-shrink:0}
+.sheikh-pullquote{margin-top:28px;padding:22px 26px;border-left:3px solid var(--orange);background:rgba(255,255,255,.5);border-radius:0 14px 14px 0;max-width:560px}
+.sheikh-pullquote p{font-family:var(--font-display);font-style:italic;font-size:clamp(17px,1.8vw,20px);line-height:1.5;color:var(--fg1);margin-bottom:10px}
+.sheikh-pullquote cite{font-size:13px;font-weight:600;color:var(--fg2);font-style:normal;letter-spacing:.02em}
+
+/* Controls */
+.sheikh-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:56px}
+.sheikh-arrow{width:44px;height:44px;border-radius:50%;border:.5px solid var(--border-strong);background:rgba(255,255,255,.85);color:var(--fg1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease),transform .25s var(--ease);padding:0}
+.sheikh-arrow:hover{background:#fff;border-color:var(--gold);color:var(--gold-deep);transform:translateY(-1px)}
+.sheikh-arrow:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.sheikh-arrow svg{display:block}
+.sheikh-dots{display:flex;gap:10px;align-items:center}
+.sheikh-dot{width:8px;height:8px;border-radius:50%;background:var(--border-strong);border:0;cursor:pointer;transition:background .25s var(--ease),width .35s var(--ease);padding:0}
+.sheikh-dot:hover{background:var(--fg3)}
+.sheikh-dot.is-active{background:var(--gold-deep);width:26px;border-radius:100px}
+.sheikh-dot:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.sheikh-more{margin-top:24px;text-align:center;font-size:13px;color:var(--fg3);font-style:italic}
+
+/* ══════════════════════════════════════════════════════════ */
+/* LESSON ANATOMY (5 minutes)                                 */
+/* ══════════════════════════════════════════════════════════ */
+#lesson-anatomy{padding:120px 24px;background:#fff}
+.la-inner{max-width:1160px;margin:0 auto}
+.la-header{text-align:center;margin-bottom:64px}
+.la-header .eyebrow{margin-bottom:14px}
+.la-sub{font-size:17px;color:var(--fg2);margin-top:14px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.65}
+.la-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;position:relative}
+.la-step{background:var(--bg1);border:.5px solid var(--border);border-radius:18px;padding:24px 18px;display:flex;flex-direction:column;gap:10px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.la-step:hover{transform:translateY(-3px);box-shadow:var(--shadow-3)}
+.la-step-num{font-family:var(--font-display);font-size:24px;font-weight:500;color:var(--orange);line-height:1;font-variant-numeric:tabular-nums}
+.la-step-title{font-size:15px;font-weight:600;color:var(--fg1);line-height:1.3}
+.la-step-desc{font-size:13px;color:var(--fg3);line-height:1.55}
+.la-step.signed{background:linear-gradient(180deg,var(--purple-soft),var(--bg1));border-color:var(--purple-border)}
+.la-step.signed .la-step-num{color:var(--purple)}
+
+/* ══════════════════════════════════════════════════════════ */
+/* TOPICS                                                     */
+/* ══════════════════════════════════════════════════════════ */
+#topics{background:var(--bg1);padding:120px 24px}
+.topics-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+.topics-side .eyebrow{margin-bottom:14px}
+.topics-h2{font-family:var(--font-display);font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.2;letter-spacing:-.015em;color:var(--fg1);margin-bottom:18px}
+.topics-h2 em{font-style:italic;color:var(--orange)}
+.topics-sub{font-size:16px;color:var(--fg2);line-height:1.7;margin-bottom:28px;max-width:440px}
+.topics-more{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--orange)}
+.topics-more::after{content:"→";transition:transform .2s var(--ease)}
+.topics-more:hover::after{transform:translateX(3px)}
+.topics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.topic-tile{border-radius:18px;padding:22px 20px;border:.5px solid transparent;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease);background:#fff}
+.topic-tile:hover{transform:translateY(-3px);box-shadow:var(--shadow-3)}
+.topic-tile-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:14px}
+.topic-tile h4{font-size:15px;font-weight:600;color:var(--fg1);margin-bottom:4px;line-height:1.3}
+.topic-tile .meta{font-size:12px;color:var(--fg3)}
+.tt-orange{border-color:var(--orange-border);background:linear-gradient(180deg,#fff,var(--orange-soft))}
+.tt-orange .topic-tile-icon{background:var(--orange);color:#fff}
+.tt-orange:hover{border-color:var(--orange)}
+.tt-coral{border-color:var(--coral-border);background:linear-gradient(180deg,#fff,var(--coral-soft))}
+.tt-coral .topic-tile-icon{background:var(--coral);color:#fff}
+.tt-coral:hover{border-color:var(--coral)}
+.tt-teal{border-color:var(--teal-border);background:linear-gradient(180deg,#fff,var(--teal-soft))}
+.tt-teal .topic-tile-icon{background:var(--teal);color:#fff}
+.tt-teal:hover{border-color:var(--teal)}
+.tt-purple{border-color:var(--purple-border);background:linear-gradient(180deg,#fff,var(--purple-soft))}
+.tt-purple .topic-tile-icon{background:var(--purple);color:#fff}
+.tt-purple:hover{border-color:var(--purple)}
+.tt-gold{border-color:var(--gold-border);background:linear-gradient(180deg,#fff,var(--gold-soft))}
+.tt-gold .topic-tile-icon{background:var(--gold-deep);color:#fff}
+.tt-gold:hover{border-color:var(--gold)}
+.tt-neutral{border-color:var(--border);background:linear-gradient(180deg,#fff,var(--bg2))}
+.tt-neutral .topic-tile-icon{background:var(--bg2);color:var(--fg2)}
+.tt-neutral:hover{border-color:var(--border-strong)}
+
+/* ══════════════════════════════════════════════════════════ */
+/* PRAYER COMPANION                                           */
+/* ══════════════════════════════════════════════════════════ */
+#prayer{padding:120px 24px;background:#fff}
+.prayer-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.prayer-text .eyebrow{margin-bottom:14px}
+.prayer-h2{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.18;letter-spacing:-.018em;color:var(--fg1);margin-bottom:22px}
+.prayer-h2 em{font-style:italic;color:var(--orange)}
+.prayer-body{font-size:17px;line-height:1.7;color:var(--fg2);margin-bottom:28px;max-width:520px}
+.prayer-features{display:flex;flex-direction:column;gap:14px}
+.prayer-feature{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bg1);border:.5px solid var(--border);border-radius:14px}
+.prayer-feature-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.prayer-feature-icon.t{background:var(--teal-soft);border:.5px solid var(--teal-border)}
+.prayer-feature-icon.o{background:var(--orange-soft);border:.5px solid var(--orange-border)}
+.prayer-feature-icon.g{background:var(--gold-soft);border:.5px solid var(--gold-border)}
+.prayer-feature-text{font-size:14px;color:var(--fg1);font-weight:500;line-height:1.5;padding-top:6px}
+.prayer-phone-wrap{display:flex;justify-content:center}
+
+/* ══════════════════════════════════════════════════════════ */
+/* COMING NEXT                                                */
+/* ══════════════════════════════════════════════════════════ */
+#coming-next{padding:120px 24px;background:var(--bg1)}
+.cn-inner{max-width:1100px;margin:0 auto}
+.cn-header{text-align:center;margin-bottom:56px}
+.cn-header .eyebrow{margin-bottom:14px}
+.cn-sub{font-size:17px;color:var(--fg2);margin-top:14px}
+.cn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cn-card{background:rgba(255,255,255,.55);border:1px dashed var(--border-strong);border-radius:18px;padding:24px 20px;display:flex;flex-direction:column;gap:12px;transition:background .25s var(--ease),border-color .25s var(--ease)}
+.cn-card:hover{background:#fff;border-color:var(--border-strong)}
+.cn-card .coming-soon-pill{align-self:flex-start}
+.cn-card-title{font-size:16px;font-weight:600;color:var(--fg2);line-height:1.3}
+.cn-card-desc{font-size:13px;color:var(--fg3);line-height:1.55}
+
+/* ══════════════════════════════════════════════════════════ */
+/* SOCIAL PROOF                                               */
+/* ══════════════════════════════════════════════════════════ */
+#proof{background:#fff;padding:120px 24px}
+.proof-inner{max-width:1160px;margin:0 auto}
+.proof-header{text-align:center;margin-bottom:48px}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border-soft);border-radius:var(--r-2xl);overflow:hidden;margin-bottom:88px}
+.stat-cell{background:#fff;padding:32px 20px;text-align:center}
+.stat-num{font-family:var(--font-display);font-size:clamp(32px,3.6vw,48px);font-weight:500;color:var(--fg1);line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.stat-num span{color:var(--orange)}
+.stat-label{font-size:14px;color:var(--fg3);line-height:1.4}
+.reviews-header{text-align:center;margin-bottom:36px}
+.reviews-header .eyebrow{margin-bottom:12px}
+.reviews-h2{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,2.8vw,36px);line-height:1.18;color:var(--fg1)}
+.reviews-h2 em{font-style:italic;color:var(--orange)}
+.reviews-track{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.testimonial-card{background:var(--bg1);border-radius:var(--r-2xl);padding:26px;border:.5px solid var(--border);display:flex;flex-direction:column}
+.testimonial-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.testimonial-quote{font-size:15px;line-height:1.65;color:var(--fg1);margin-bottom:18px;flex:1}
+.testimonial-quote::before{content:"\201C";font-family:var(--font-display);font-size:42px;color:var(--orange-border);line-height:0;vertical-align:-12px;margin-right:4px}
+.testimonial-author{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:.5px solid var(--border-soft)}
+.testimonial-avatar{width:36px;height:36px;border-radius:50%;background:var(--orange-soft);border:.5px solid var(--orange-border);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--orange);flex-shrink:0}
+.testimonial-name{font-size:14px;font-weight:600;color:var(--fg1)}
+.testimonial-store{font-size:12px;color:var(--fg4)}
+
+/* ══════════════════════════════════════════════════════════ */
+/* PRICING                                                    */
+/* ══════════════════════════════════════════════════════════ */
+#pricing{background:var(--bg1);padding:120px 24px}
+.pricing-inner{max-width:1100px;margin:0 auto}
+.pricing-header{text-align:center;margin-bottom:36px}
+.pricing-header .eyebrow{margin-bottom:14px}
+.pricing-sub{font-size:17px;color:var(--fg2);margin-top:14px}
+.pricing-toggle{display:inline-flex;background:#fff;border:.5px solid var(--border);border-radius:var(--r-full);padding:4px;margin:32px auto 56px;position:relative;box-shadow:var(--shadow-1)}
+.pricing-toggle-wrap{display:flex;justify-content:center}
+.pricing-toggle button{padding:9px 22px;font-size:14px;font-weight:600;color:var(--fg3);border-radius:var(--r-full);transition:color .2s,background .25s var(--ease)}
+.pricing-toggle button.active{background:var(--fg1);color:#fff}
+.pricing-toggle .save{margin-left:6px;background:var(--teal-soft);color:var(--teal-deep);font-size:11px;font-weight:700;padding:2px 8px;border-radius:var(--r-full);letter-spacing:.04em}
+.pricing-toggle button.active .save{background:rgba(60,184,154,.25);color:#a4f0d6}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pricing-card{background:var(--card);border-radius:var(--r-2xl);padding:32px 28px;border:.5px solid var(--border);position:relative;display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.pricing-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-3)}
+.pricing-card.featured{border:1.5px solid var(--orange);background:linear-gradient(180deg,#fff,var(--orange-soft));box-shadow:0 16px 48px rgba(232,133,74,.12)}
+.pricing-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:11px;font-weight:600;padding:5px 14px;border-radius:var(--r-full);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 12px rgba(232,133,74,.3)}
+.pricing-tier{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--fg2);margin-bottom:8px;font-family:var(--font-ui)}
+.pricing-tier-for{font-size:13px;color:var(--fg3);margin-bottom:22px;font-style:italic}
+.pricing-price-line{display:flex;align-items:baseline;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.pricing-price{font-family:var(--font-display);font-size:46px;font-weight:500;color:var(--fg1);line-height:1;font-variant-numeric:tabular-nums}
+.pricing-price-meta{font-size:14px;color:var(--fg3)}
+.pricing-saving{display:inline-flex;align-items:center;background:var(--teal-soft);color:var(--teal-deep);font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--r-full);letter-spacing:.04em;margin-bottom:22px;min-height:22px}
+.pricing-saving:empty{background:transparent}
+.pricing-divider{height:.5px;background:var(--border-soft);margin-bottom:20px}
+.pricing-features{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;flex:1}
+.pricing-feature{display:flex;align-items:flex-start;gap:9px;font-size:14px;line-height:1.5;color:var(--fg2)}
+.pricing-feature-icon{flex-shrink:0;width:16px;height:16px;border-radius:50%;background:var(--teal-soft);color:var(--teal-deep);display:flex;align-items:center;justify-content:center;font-size:9px;margin-top:2px;font-weight:700}
+.pricing-feature em{font-style:normal;color:var(--fg4);font-size:11px;font-weight:500}
+.pricing-card .btn-primary,.pricing-card .pricing-btn-outline{width:100%;justify-content:center;display:flex}
+.pricing-btn-outline{padding:14px;background:transparent;border:1px solid var(--border-strong);border-radius:var(--r-lg);font-size:14px;font-weight:600;color:var(--fg1);cursor:pointer;transition:background .2s,border-color .2s;font-family:inherit}
+.pricing-btn-outline:hover{background:var(--bg1);border-color:var(--fg3)}
+.pricing-note{text-align:center;margin-top:36px;font-size:13px;color:var(--fg3)}
+
+/* ══════════════════════════════════════════════════════════ */
+/* FAQ                                                        */
+/* ══════════════════════════════════════════════════════════ */
+#faq{background:var(--cream);padding:120px 24px;border-top:.5px solid var(--border)}
+.faq-inner{max-width:800px;margin:0 auto}
+.faq-list{margin-top:48px;border-top:.5px solid var(--border)}
+.faq-item{border-bottom:.5px solid var(--border)}
+.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 0;background:none;font-family:var(--font-ui);font-size:17px;font-weight:500;color:var(--fg1);text-align:left;cursor:pointer;transition:color .2s}
+.faq-question:hover{color:var(--orange)}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:var(--bg1);border:.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:var(--fg3);transition:transform .3s var(--ease),background .2s,color .2s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--orange-soft);color:var(--orange);border-color:var(--orange-border)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-answer-inner{padding:0 0 24px;font-size:16px;line-height:1.75;color:var(--fg2)}
+
+/* ══════════════════════════════════════════════════════════ */
+/* FINAL CTA                                                  */
+/* ══════════════════════════════════════════════════════════ */
+#cta-final{background:var(--cream);padding:140px 24px;position:relative;overflow:hidden;border-top:.5px solid var(--gold-border)}
+.cta-final-pattern{position:absolute;inset:0;opacity:.09;pointer-events:none;color:var(--gold-deep);
+  -webkit-mask:radial-gradient(ellipse at 50% 50%,#000 0%,transparent 75%);
+  mask:radial-gradient(ellipse at 50% 50%,#000 0%,transparent 75%);
+}
+.cta-final-pattern svg{width:100%;height:100%}
+.cta-final-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.cta-final-h2{font-family:var(--font-display);font-size:clamp(34px,5vw,60px);font-weight:400;color:var(--fg1);line-height:1.1;letter-spacing:-.02em;margin-bottom:22px}
+.cta-final-h2 em{font-style:italic;color:var(--orange)}
+.cta-final-sub{font-size:17px;line-height:1.7;color:var(--fg2);margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto}
+.cta-final-cta{display:inline-flex;align-items:center;gap:10px;padding:18px 40px;background:var(--orange);color:#fff;font-size:17px;font-weight:600;border-radius:var(--r-lg);box-shadow:0 6px 28px rgba(232,133,74,.35);transition:transform var(--ease) 150ms,box-shadow var(--ease) 150ms;margin-bottom:18px}
+.cta-final-cta:hover{transform:translateY(-1px);box-shadow:0 10px 36px rgba(232,133,74,.45)}
+.cta-final-cta.pulse{animation:pulse-once 1.6s ease-out 1}
+@keyframes pulse-once{0%{box-shadow:0 6px 28px rgba(232,133,74,.35)}40%{box-shadow:0 8px 0 12px rgba(232,133,74,0)}100%{box-shadow:0 6px 28px rgba(232,133,74,.35)}}
+.cta-final-trust{font-size:13px;color:var(--fg3);letter-spacing:.02em}
+.cta-final-trust span{margin:0 8px;color:var(--fg4)}
+
+/* ══════════════════════════════════════════════════════════ */
+/* FOOTER                                                     */
+/* ══════════════════════════════════════════════════════════ */
+#footer{background:#141310;padding:64px 24px 40px;border-top:1px solid rgba(255,255,255,.05)}
+.footer-inner{max-width:1160px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand .nav-logo{margin-bottom:14px}
+.footer-tagline{font-size:14px;line-height:1.65;color:rgba(255,255,255,.4);margin-bottom:24px;max-width:280px}
+.footer-social{display:flex;gap:10px}
+.footer-social-link{width:34px;height:34px;border-radius:var(--r-md);background:rgba(255,255,255,.05);border:.5px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s;color:rgba(255,255,255,.7)}
+.footer-social-link:hover{background:rgba(255,255,255,.1)}
+.footer-col-title{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:15px;color:rgba(255,255,255,.55);transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.9)}
+.footer-bottom{padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copyright{font-size:13px;color:rgba(255,255,255,.3)}
+.footer-copyright a{color:inherit}
+.footer-copyright a:hover{color:rgba(255,255,255,.7)}
+.footer-legal{display:flex;gap:20px}
+.footer-legal a{font-size:13px;color:rgba(255,255,255,.32);transition:color .2s}
+.footer-legal a:hover{color:rgba(255,255,255,.7)}
+
+/* ══════════════════════════════════════════════════════════ */
+/* RESPONSIVE                                                 */
+/* ══════════════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:56px;text-align:left}
+  .hero-phone-wrap{order:-1;display:flex;justify-content:center}
+  .hero-trust-strip{justify-content:flex-start}
+  .sheikh-slide{grid-template-columns:1fr;gap:48px;align-items:start;justify-items:center}
+  .sheikh-photo-wrap{width:100%;max-width:380px}
+  .sheikh-text{width:100%;max-width:560px}
+  .sheikh-header{margin-bottom:48px}
+  .topics-inner{grid-template-columns:1fr;gap:48px}
+  .prayer-inner{grid-template-columns:1fr;gap:56px;text-align:left}
+  .prayer-phone-wrap{order:-1}
+  .la-grid{grid-template-columns:repeat(3,1fr)}
+  .cn-grid{grid-template-columns:repeat(2,1fr)}
+  .reviews-track{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  #problem,#sheikh,#topics,#proof,#faq,#cta-final{padding-top:88px;padding-bottom:88px}
+  #hero{padding:110px 20px 64px}
+  .nav-links{display:none}
+  .nav-cta .nav-signin{display:none}
+  .nav-burger{display:flex}
+  .topics-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .reviews-track{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+  .pricing-card.featured{order:-1}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .la-grid{grid-template-columns:1fr;position:relative}
+  .la-grid::before{content:"";position:absolute;left:36px;top:24px;bottom:24px;width:1px;background:var(--border-strong)}
+  .la-step{padding-left:64px;position:relative}
+  .la-step .la-step-num{position:absolute;left:18px;top:24px}
+  .cta-final-h2{font-size:32px}
+  .category-line{font-size:38px}
+}
+@media(max-width:480px){
+  .hero-h1{font-size:42px}
+  .topics-grid{grid-template-columns:1fr}
+  .cn-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .reveal{opacity:1;transform:none}
+  .hero-pattern{animation:none}
+}
+
+/* ── Store modal ─────────────────────────────────────────────── */
+.store-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px}
+.store-modal-backdrop[hidden]{display:none}
+.store-modal-card{background:#fff;border-radius:24px;padding:40px 36px;max-width:420px;width:100%;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.18)}
+.store-modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:none;background:var(--bg1);color:var(--fg2);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.store-modal-close:hover{background:var(--border)}
+.store-modal-eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.store-modal-title{font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--fg1);margin-bottom:28px;line-height:1.2}
+.store-modal-btns{display:flex;flex-direction:column;gap:12px}
+.store-btn{display:flex;align-items:center;gap:12px;padding:16px 20px;border-radius:var(--r-lg);font-size:15px;font-weight:600;transition:transform .15s ease,box-shadow .15s ease}
+.store-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.store-btn-ios{background:var(--fg1);color:#fff}
+.store-btn-android{background:var(--bg1);color:var(--fg1);border:.5px solid var(--border)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Niyyah home">
+      <img src="niyyah-logo-black.png" alt="Niyyah" style="height:30px;width:auto">
+    </a>
+    <div class="nav-links">
+      <a href="#sheikh">Scholars</a>
+      <a href="#topics">Topics</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#" class="btn-primary" data-store-trigger>Start Free</a>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ MOBILE DRAWER ═══════════════════ -->
+<div class="nav-drawer" id="navDrawer" aria-hidden="true">
+  <div class="nav-drawer-top">
+    <a href="#" class="nav-logo" aria-label="Niyyah home">
+      <img src="niyyah-logo-black.png" alt="Niyyah" style="height:28px;width:auto">
+    </a>
+    <button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">×</button>
+  </div>
+  <div class="nav-drawer-links">
+    <a href="#sheikh" data-drawer-link>Scholars</a>
+    <a href="#topics" data-drawer-link>Topics</a>
+    <a href="#faq" data-drawer-link>FAQ</a>
+  </div>
+  <div class="nav-drawer-bottom">
+    <a href="#" class="btn-primary" data-store-trigger>Start Free</a>
+  </div>
+</div>
+
+<!-- ═══════════════════ 02 HERO (NEW) ═══════════════════ -->
+<section id="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-pattern" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="khatam" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+          <g transform="translate(40 40)" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linejoin="miter">
+            <rect x="-22" y="-22" width="44" height="44"/>
+            <rect x="-22" y="-22" width="44" height="44" transform="rotate(45)"/>
+            <circle cx="0" cy="0" r="3" fill="currentColor" stroke="none" opacity="0.6"/>
+          </g>
+        </pattern>
+      </defs>
+      <rect width="800" height="800" fill="url(#khatam)"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+
+    <!-- Copy -->
+    <div class="hero-copy">
+      <span class="hero-eyebrow">The app to live Islam, not just learn it</span>
+      <h1 class="hero-h1">Live Islam practically.<em>5 minutes a day.</em></h1>
+      <p class="hero-sub">Scholar-verified daily lessons on the questions Muslims actually have — built for the day you actually live.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary-light" data-store-trigger>Start Free</a>
+        <span class="hero-cta-note">14 days free · No card required</span>
+      </div>
+      <div class="hero-trust-strip">
+        <span><span class="hero-trust-stars">★</span><strong>4.8</strong> on the App Store</span>
+        <span class="hero-trust-divider"></span>
+        <span><strong>100K+</strong> Muslims</span>
+        <span class="hero-trust-divider"></span>
+        <span>Reviewed by <strong>scholars</strong></span>
+      </div>
+    </div>
+
+    <!-- Phone mockup, 3 screens cycling -->
+    <div class="hero-phone-wrap">
+      <div class="phone-frame" id="heroPhone" role="img" aria-label="Niyyah app preview">
+        <div class="phone-notch"></div>
+        <div class="phone-screen-wrap">
+
+          <!-- Screen 1: Topic Grid Home -->
+          <div class="phone-s active" data-hero-screen>
+            <div class="ps-bar"><span class="ps-time">9:41</span><span class="ps-icons">●●● 100%</span></div>
+            <div class="ps-hdr">
+              <div><div class="ps-greet">Assalamu Alaykum</div><div class="ps-name">Abdullah</div></div>
+              <div class="ps-streak">🔥 23</div>
+            </div>
+            <div class="ps-verse">
+              <div class="ps-verse-top"><span class="ps-ve">Today's Verse</span><span class="ps-vr">2:286</span></div>
+              <div class="ps-va">لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا</div>
+              <div class="ps-vt">"Allah does not burden a soul beyond what it can bear"</div>
+            </div>
+            <div class="ps-ctapill"><span>Start today's lesson · 5 min</span><span class="arr">›</span></div>
+            <div class="ps-grid">
+              <div class="ps-tile c"><div class="ps-tile-icon">❤️</div><div class="ps-tile-name">Marriage &amp; relationships</div></div>
+              <div class="ps-tile o"><div class="ps-tile-icon">🏠</div><div class="ps-tile-name">Parenting &amp; family</div></div>
+              <div class="ps-tile t"><div class="ps-tile-icon">💰</div><div class="ps-tile-name">Money &amp; finance</div></div>
+              <div class="ps-tile p"><div class="ps-tile-icon">🌿</div><div class="ps-tile-name">Anxiety &amp; peace</div></div>
+            </div>
+          </div>
+
+          <!-- Screen 2: Lesson Card (mid-flow) -->
+          <div class="phone-s" data-hero-screen>
+            <div class="ps-bar"><span class="ps-time">9:41</span><span class="ps-icons">●●● 100%</span></div>
+            <div class="ps-progress">
+              <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="ps-lesson-meta"><span>Anxiety &amp; Peace</span><span><strong>Step 4</strong> of 8</span></div>
+            <div class="ps-take">
+              <div class="ps-take-eyebrow">Scholar's Take</div>
+              <div class="ps-sheikh">
+                <div class="ps-sheikh-avatar">H</div>
+                <div>
+                  <div class="ps-sheikh-name">Sheikh Hussan Mahmood</div>
+                  <div class="ps-sheikh-role">Reviewed this lesson</div>
+                </div>
+                <span class="badge-verified" style="margin-left:auto;font-size:8px;padding:3px 6px">Verified</span>
+              </div>
+              <p class="ps-take-body">Tawakkul is not surrender of effort. It is doing your part — the call, the application, the conversation — <em>and then</em> trusting Allah with the outcome. Practise it today by naming one thing you can act on, and one thing you must release.</p>
+            </div>
+          </div>
+
+          <!-- Screen 3: Prayer Tab -->
+          <div class="phone-s" data-hero-screen>
+            <div class="ps-bar"><span class="ps-time">9:41</span><span class="ps-icons">●●● 100%</span></div>
+            <div class="ps-prayer-hdr">
+              <div class="ps-prayer-eyebrow">Prayer · Milton Keynes</div>
+              <div class="ps-prayer-title">Today</div>
+            </div>
+            <div class="ps-next">
+              <div>
+                <div class="ps-next-label">Next prayer</div>
+                <div class="ps-next-name">Asr</div>
+              </div>
+              <div class="ps-next-time">3:48 PM</div>
+            </div>
+            <div class="ps-prayer-list">
+              <div class="ps-prayer-row done"><div class="dot">✓</div><div class="name">Fajr</div><div class="time">5:42 AM</div></div>
+              <div class="ps-prayer-row done"><div class="dot">✓</div><div class="name">Dhuhr</div><div class="time">12:58 PM</div></div>
+              <div class="ps-prayer-row now"><div class="dot"></div><div class="name">Asr</div><div class="time">3:48 PM</div></div>
+              <div class="ps-prayer-row"><div class="dot"></div><div class="name">Maghrib</div><div class="time">6:23 PM</div></div>
+              <div class="ps-prayer-row"><div class="dot"></div><div class="name">Isha</div><div class="time">7:51 PM</div></div>
+            </div>
+            <div class="ps-prayer-bottom">
+              <div class="ps-streak-ring">
+                <div class="ps-ring"><span>6/7</span></div>
+                <div><div class="ps-ring-label">This week</div><div class="ps-ring-meta">6 of 7</div></div>
+              </div>
+              <div class="ps-qibla">
+                <div class="ps-compass"></div>
+                <div><div class="ps-qibla-label">Qibla</div><div class="ps-qibla-deg">118°</div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="phone-dots" aria-hidden="true">
+          <div class="phone-dot on"></div>
+          <div class="phone-dot"></div>
+          <div class="phone-dot"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ HERO-1 (HIDDEN PREVIOUS HERO) ═══════════════════ -->
+<section id="hero-1" hidden aria-hidden="true">
+  <div class="hero-inner container">
+    <div class="hero-copy">
+      <h1 class="hero-h1">Learn Islam,<br><em>practically.</em></h1>
+      <p class="hero-sub">5 minutes a day. Scholar-verified.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary-light" data-store-trigger>Start Free — 14 Days</a>
+      </div>
+      <div class="hero-proof">
+        <span class="hero-stars">★★★★★</span>
+        <span class="hero-proof-txt">4.8 on App Store</span>
+        <span class="hero-proof-dot"></span>
+        <span class="hero-proof-txt">100K+ Muslims</span>
+        <span class="hero-proof-dot"></span>
+        <span class="hero-proof-txt">Scholar-verified</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 03 PROBLEM ═══════════════════ -->
+<section id="problem">
+  <div class="problem-inner">
+    <p class="eyebrow problem-eyebrow reveal">The Gap</p>
+    <blockquote class="problem-quote reveal reveal-delay-1">"I'll learn more about my deen when life slows down."</blockquote>
+    <div class="problem-rule reveal reveal-delay-2"></div>
+    <p class="problem-sub reveal reveal-delay-2">It never slows down.</p>
+    <p class="problem-body reveal reveal-delay-3">Most Muslims don't need another 90-minute lecture saved for "later." They need five focused minutes today — on the question they're actually carrying right now. Niyyah is built for that life.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ 05 TRUSTED CONTRIBUTORS ═══════════════════ -->
+<section id="sheikh">
+  <div class="sheikh-bg-glow" aria-hidden="true"></div>
+  <div class="sheikh-inner">
+    <header class="sheikh-header">
+      <p class="eyebrow reveal">Trusted content from verified sources</p>
+      <h2 class="sheikh-h2 reveal reveal-delay-1">Built with <em>scholars and leaders</em> in their fields.</h2>
+    </header>
+
+    <div class="sheikh-carousel reveal reveal-delay-3" id="sheikhCarousel" role="region" aria-roledescription="carousel" aria-label="Niyyah scholars and contributors" tabindex="0">
+      <div class="sheikh-stage">
+
+        <!-- Slide 1: Sheikh Hussan Mahmood -->
+        <article class="sheikh-slide is-active" data-slide="0" aria-hidden="false">
+          <div class="sheikh-photo-wrap">
+            <img src="hussan-mahmood.png" alt="Sheikh Hussan Mahmood" class="sheikh-photo-img" width="800" height="1000">
+          </div>
+          <div class="sheikh-text">
+            <span class="sheikh-specialism">Specialism: Qualified Mufti</span>
+            <h3 class="sheikh-name">Sheikh Hussan Mahmood</h3>
+            <p class="sheikh-role">Course Lead, Al-Salam Institute</p>
+            <ul class="sheikh-credentials">
+              <li>Course Lead at Al-Salam Institute</li>
+              <li>Shariah Studies Program at the European Institute for Human Sciences in France and Wales</li>
+            </ul>
+            <blockquote class="sheikh-pullquote">
+              <p>"We've already reached 150,000 people, and we intend to reach millions in all languages insha'Allah. This is an app that has been built for Muslims by Muslims to address this communal need."</p>
+              <cite>— Sheikh Hussan Mahmood</cite>
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- Slide 2: Iqbal Nasim CBE -->
+        <article class="sheikh-slide" data-slide="1" aria-hidden="true">
+          <div class="sheikh-photo-wrap">
+            <img src="iqbal-nasim.png" alt="Iqbal Nasim CBE" class="sheikh-photo-img" width="800" height="1000" loading="lazy">
+          </div>
+          <div class="sheikh-text">
+            <span class="sheikh-specialism">Specialism: Zakat &amp; community</span>
+            <h3 class="sheikh-name">Iqbal Nasim<span class="sheikh-postnominal">CBE</span></h3>
+            <p class="sheikh-role">CEO, National Zakat Foundation UK</p>
+            <ul class="sheikh-credentials">
+              <li>Awarded CBE in the 2023 New Year Honours for services to British Muslim communities</li>
+              <li>Founding CEO of the National Zakat Foundation UK, the country's leading zakat institution</li>
+              <li>Background in management consulting (formerly McKinsey &amp; Company)</li>
+            </ul>
+            <blockquote class="sheikh-pullquote">
+              <p>"This app is a daily guide for those seeking to live a God-centred life. Whether you want to understand the Quran, improve your daily prayers, or increase your knowledge — this app is for you."</p>
+              <cite>— Iqbal Nasim CBE</cite>
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- Slide 3: Ibrahim Khan -->
+        <article class="sheikh-slide" data-slide="2" aria-hidden="true">
+          <div class="sheikh-photo-wrap">
+            <img src="ibrahim-khan.png" alt="Ibrahim Khan" class="sheikh-photo-img" width="800" height="1000" loading="lazy">
+          </div>
+          <div class="sheikh-text">
+            <span class="sheikh-specialism">Specialism: Halal money &amp; finance</span>
+            <h3 class="sheikh-name">Ibrahim Khan</h3>
+            <p class="sheikh-role">Co-founder, Islamic Finance Guru (IFG)</p>
+            <ul class="sheikh-credentials">
+              <li>Co-founder of Islamic Finance Guru, the UK's largest Islamic finance platform</li>
+              <li>Oxford-educated barrister, called to the Bar of England &amp; Wales</li>
+              <li>Author and speaker on halal investing and Muslim wealth-building</li>
+            </ul>
+            <blockquote class="sheikh-pullquote">
+              <p>"Millions of Muslims are already asking ChatGPT about their faith. The question isn't whether AI will shape how Muslims learn — it's whether that AI is built with real Islamic scholarship. Niyyah is the answer."</p>
+              <cite>— Ibrahim Khan</cite>
+            </blockquote>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="sheikh-controls">
+        <button class="sheikh-arrow sheikh-prev" type="button" aria-label="Previous contributor" aria-controls="sheikhCarousel">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="sheikh-dots" role="tablist" aria-label="Choose contributor">
+          <button class="sheikh-dot is-active" type="button" role="tab" aria-selected="true" aria-label="Sheikh Hussan Mahmood" data-target="0"></button>
+          <button class="sheikh-dot" type="button" role="tab" aria-selected="false" aria-label="Iqbal Nasim CBE" data-target="1"></button>
+          <button class="sheikh-dot" type="button" role="tab" aria-selected="false" aria-label="Ibrahim Khan" data-target="2"></button>
+        </div>
+        <button class="sheikh-arrow sheikh-next" type="button" aria-label="Next contributor" aria-controls="sheikhCarousel">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="sheikh-more">More scholars and leaders joining throughout the year, in shaa Allah.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 06 LESSON ANATOMY ═══════════════════ -->
+<!-- ═══════════════════ 07 TOPICS ═══════════════════ -->
+<section id="topics">
+  <div class="topics-inner">
+    <div class="topics-side reveal">
+      <p class="eyebrow">Topics</p>
+      <h2 class="topics-h2">Over 1,000,000 Muslims asked us their hardest questions on MuslimGPT. <em>We turned the answers into lessons.</em></h2>
+      <p class="topics-sub">The topics in Niyyah didn't come from a curriculum. They came from six months of real Muslims wrestling with real life.</p>
+      <a href="#" class="topics-more">More topics added every week</a>
+    </div>
+    <div class="topics-grid">
+      <div class="topic-tile tt-coral reveal reveal-delay-1">
+        <div class="topic-tile-icon">❤️</div>
+        <h4>Marriage &amp; Relationships</h4>
+        <p class="meta">14 lessons</p>
+      </div>
+      <div class="topic-tile tt-teal reveal reveal-delay-2">
+        <div class="topic-tile-icon">💰</div>
+        <h4>Money &amp; Finance</h4>
+        <p class="meta">12 lessons</p>
+      </div>
+      <div class="topic-tile tt-purple reveal reveal-delay-3">
+        <div class="topic-tile-icon">🌿</div>
+        <h4>Anxiety &amp; Inner Peace</h4>
+        <p class="meta">16 lessons</p>
+      </div>
+      <div class="topic-tile tt-orange reveal reveal-delay-4">
+        <div class="topic-tile-icon">🕌</div>
+        <h4>Prayer &amp; Worship</h4>
+        <p class="meta">18 lessons</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ 10 SOCIAL PROOF ═══════════════════ -->
+<section id="proof">
+  <div class="proof-inner">
+    <div class="stats-row reveal">
+      <div class="stat-cell">
+        <div class="stat-num"><span data-stat="100" data-suffix="K+">0</span></div>
+        <div class="stat-label">Muslims</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num"><span data-stat="4.8" data-suffix="">0</span><span style="color:var(--gold);font-size:.7em;margin-left:2px">★</span></div>
+        <div class="stat-label">Average rating</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num"><span data-stat="674" data-suffix="+">0</span></div>
+        <div class="stat-label">Verified reviews</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num"><span data-stat="1" data-suffix="">0</span></div>
+        <div class="stat-label">Sheikh reviewing every lesson</div>
+      </div>
+    </div>
+
+    <div class="reviews-header reveal">
+      <p class="eyebrow">Reviews</p>
+      <h2 class="reviews-h2">Real Muslims. <em>Real practice.</em></h2>
+    </div>
+
+    <div class="reviews-track">
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">This app has been life-changing. The quizzes are super informative, and the audio section is fantastic. I've never had a tool like this.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">F</div>
+          <div><div class="testimonial-name">F.H.</div><div class="testimonial-store">App Store</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">Like deen buddy but 10x better. I test myself every day and remember Allah every day in one single app. Alhamdulilah for this.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">R</div>
+          <div><div class="testimonial-name">Rawhan</div><div class="testimonial-store">App Store</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">An excellent, stunning app. The guidance is straight to the point and rooted in Islamic scholarship. An example of how technology can be used for good.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">Z</div>
+          <div><div class="testimonial-name">Z.A.</div><div class="testimonial-store">App Store</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">Mashallah, this app has genuinely helped me build a consistent relationship with the Quran. The 5-minute daily habit is exactly what I needed as a busy professional.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div><div class="testimonial-name">A.M.</div><div class="testimonial-store">Google Play</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">I love how every answer comes with a Quran reference and scholar verification. Finally an Islamic app I can trust completely. Highly recommend to every Muslim.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div><div class="testimonial-name">Sarah K.</div><div class="testimonial-store">Google Play</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">As a revert, I had so many questions I was too embarrassed to ask. Niyyah answered them all without judgment, with actual Islamic sources. It changed everything for me.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">L</div>
+          <div><div class="testimonial-name">Layla T.</div><div class="testimonial-store">App Store</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 12 FAQ ═══════════════════ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="section-header reveal">
+      <p class="eyebrow">Questions</p>
+      <h2 class="h2-display">Everything <em>worth asking.</em></h2>
+    </div>
+    <div class="faq-list" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">How is Niyyah different from other Islamic apps? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Most Islamic apps are reference tools — you look something up, then close them. Niyyah is built around a daily five-minute practice: scholar-reviewed lessons on real-life topics, a prayer companion, and habit-building rooted in the Quran and Sunnah. It's designed to change how you live your deen, not just what you look up.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">Who reviews the content? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Every lesson on Niyyah is reviewed by Sheikh Hussan Mahmood before it reaches you. AI helps us produce content at speed; the Sheikh ensures every word is faithful to the sources and useful in real life.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">Which madhab does Niyyah follow? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Niyyah serves Muslims across all four major madhabs — Hanafi, Maliki, Shafi'i, and Hanbali. Where rulings differ between schools, we surface the relevant positions clearly. You're never locked into one perspective.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">I'm a revert or new to Islam — is this for me? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. Niyyah was built with reverts and beginners in mind. No assumed prior knowledge. No judgment. No gatekeeping. Start exactly where you are. The 'New to Islam' topic path is a great first stop.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">I'm a busy professional with no time. Does five minutes really do anything? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Five minutes a day, every day, is the practice. The app is built around the reality that you're not going to find a free hour — and you don't need to. Consistent small steps, rooted in the Quran and reviewed by a scholar, are how a daily relationship with your deen is actually built.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">What's the difference between Basic and Premium? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Basic ($1.49/mo) gives you the full content library and prayer companion — everything you need to build the daily reading habit. Premium ($7.99/mo) adds AI chat to discuss any lesson, Ask Anything for open Islamic Q&amp;A, and the upcoming audio, offline, and human scholar features. Basic is enough for most Muslims. Premium is for those who want to go deeper.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">Can I cancel anytime? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes, always. Cancel directly through your App Store or Google Play subscription settings at any time. If you cancel, your paid access continues until the end of the current billing period. No emails, no friction.</div></div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">What's coming next? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Tafsir panel (read any ayah and pull out scholarly commentary), audio lessons (listen on the commute), offline access (for travel and Hajj), and Ask a Scholar (real human scholar responses, async). All in the next few months. We ship the daily practice first.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 13 FINAL CTA ═══════════════════ -->
+<section id="cta-final">
+  <div class="cta-final-pattern" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="khatam2" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+          <g transform="translate(40 40)" fill="none" stroke="currentColor" stroke-width="0.7">
+            <rect x="-22" y="-22" width="44" height="44"/>
+            <rect x="-22" y="-22" width="44" height="44" transform="rotate(45)"/>
+            <circle cx="0" cy="0" r="3" fill="currentColor" stroke="none" opacity="0.6"/>
+          </g>
+        </pattern>
+      </defs>
+      <rect width="800" height="800" fill="url(#khatam2)"/>
+    </svg>
+  </div>
+  <div class="cta-final-inner">
+    <h2 class="cta-final-h2 reveal">Five minutes. Today. <em>That's the whole pitch.</em></h2>
+    <p class="cta-final-sub reveal reveal-delay-1">Join 100,000+ Muslims building a daily Islamic practice — one lesson, one prayer, one day at a time.</p>
+    <a href="#" class="cta-final-cta reveal reveal-delay-2" id="ctaFinalBtn" data-store-trigger>Start Free</a>
+    <p class="cta-final-trust reveal reveal-delay-3">14 days free <span>·</span> No card required <span>·</span> Cancel anytime</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ 14 FOOTER ═══════════════════ -->
+<!-- ═══════════════════ STORE MODAL ═══════════════════ -->
+<div class="store-modal-backdrop" id="storeModal" aria-modal="true" role="dialog" aria-label="Download Niyyah" hidden>
+  <div class="store-modal-card">
+    <button class="store-modal-close" id="storeModalClose" aria-label="Close">×</button>
+    <p class="store-modal-eyebrow">Download Niyyah</p>
+    <h2 class="store-modal-title">Which device are you on?</h2>
+    <div class="store-modal-btns">
+      <a href="https://apps.apple.com/gb/app/niyyah-muslimgpt-companion/id6446500974" target="_blank" rel="noopener" class="store-btn store-btn-ios">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        iOS — App Store
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.guider.guidermobile&hl=en_GB" target="_blank" rel="noopener" class="store-btn store-btn-android">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 010 2.594zM1.337.924A1.487 1.487 0 001.225 1.492v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195A1.467 1.467 0 002.504.016l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>
+        Android — Google Play
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="margin-bottom:14px">
+          <img src="niyyah-logo-white.png" alt="Niyyah" style="height:28px;width:auto;display:block">
+        </div>
+        <p class="footer-tagline">The app to live Islam, not just <em>learn</em> it.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/niyyahapp/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/niyyahapp" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@theniyyahapp" target="_blank" rel="noopener" class="footer-social-link" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Product</p>
+        <div class="footer-links">
+          <a href="#sheikh">Scholars</a>
+          <a href="#topics">Topics</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© <span id="footerYear">2026</span> Guider App Ltd · <a href="mailto:connect@niyyah.app">connect@niyyah.app</a></p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
+<script>
+(function(){
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ─── Footer year ─── */
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+  /* ─── Nav scroll behaviour ─── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, {passive: true});
+
+  /* ─── Mobile drawer ─── */
+  const burger = document.getElementById('navBurger');
+  const drawer = document.getElementById('navDrawer');
+  const drawerClose = document.getElementById('navDrawerClose');
+  const openDrawer = () => { drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeDrawer = () => { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  burger.addEventListener('click', openDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  document.querySelectorAll('[data-drawer-link]').forEach(a => a.addEventListener('click', closeDrawer));
+
+  /* ─── Scroll reveal ─── */
+  const reveals = document.querySelectorAll('.reveal');
+  if (reduceMotion) {
+    reveals.forEach(el => el.classList.add('visible'));
+  } else {
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+      });
+    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+    reveals.forEach(el => ro.observe(el));
+  }
+
+  /* ─── Hero mouse-tracking glow (subtle, only on fine pointers) ─── */
+  (function() {
+    const hero = document.getElementById('hero');
+    const glow = hero?.querySelector('.hero-glow');
+    if (!hero || !glow || reduceMotion) return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    let raf = 0, tx = 50, ty = 40, cx = 50, cy = 40;
+    const apply = () => {
+      cx += (tx - cx) * 0.12;
+      cy += (ty - cy) * 0.12;
+      glow.style.setProperty('--mx', cx + '%');
+      glow.style.setProperty('--my', cy + '%');
+      if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) raf = requestAnimationFrame(apply);
+      else raf = 0;
+    };
+
+    hero.addEventListener('mouseenter', () => hero.classList.add('glow-on'));
+    hero.addEventListener('mouseleave', () => hero.classList.remove('glow-on'));
+    hero.addEventListener('mousemove', (e) => {
+      const r = hero.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width) * 100;
+      ty = ((e.clientY - r.top) / r.height) * 100;
+      if (!raf) raf = requestAnimationFrame(apply);
+    });
+  })();
+
+  /* ─── Hero phone screen cycling (3.5s, pause on hover + out of viewport) ─── */
+  (function() {
+    const heroPhone = document.getElementById('heroPhone');
+    if (!heroPhone) return;
+    const screens = heroPhone.querySelectorAll('[data-hero-screen]');
+    const dots = heroPhone.querySelectorAll('.phone-dot');
+    if (!screens.length) return;
+
+    let idx = 0;
+    let timer = null;
+    let hovered = false;
+    let inView = true;
+
+    const tick = () => {
+      screens[idx].classList.remove('active');
+      if (dots[idx]) dots[idx].classList.remove('on');
+      idx = (idx + 1) % screens.length;
+      screens[idx].classList.add('active');
+      if (dots[idx]) dots[idx].classList.add('on');
+    };
+
+    const start = () => { if (!timer && !reduceMotion && !hovered && inView) timer = setInterval(tick, 3500); };
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+
+    heroPhone.addEventListener('mouseenter', () => { hovered = true; stop(); });
+    heroPhone.addEventListener('mouseleave', () => { hovered = false; start(); });
+
+    const vio = new IntersectionObserver((entries) => {
+      entries.forEach(e => { inView = e.isIntersecting; inView ? start() : stop(); });
+    }, {threshold: 0.2});
+    vio.observe(heroPhone);
+
+    /* Make topic tiles on screen 1 clickable — scroll to Start Free CTA */
+    heroPhone.querySelectorAll('.ps-tile').forEach(tile => {
+      tile.style.cursor = 'pointer';
+      tile.addEventListener('click', () => {
+        const cta = document.querySelector('.hero-ctas .btn-primary-light');
+        if (cta) cta.scrollIntoView({behavior: 'smooth', block: 'center'});
+      });
+    });
+  })();
+
+  /* ─── FAQ accordion ─── */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        i.querySelector('.faq-answer').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        const ans = item.querySelector('.faq-answer');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+/* ─── Stats count-up ─── */
+  (function() {
+    const stats = document.querySelectorAll('[data-stat]');
+    if (!stats.length) return;
+    if (reduceMotion) {
+      stats.forEach(el => {
+        const target = parseFloat(el.dataset.stat);
+        const decimals = (el.dataset.stat.split('.')[1] || '').length;
+        el.textContent = target.toFixed(decimals) + (el.dataset.suffix || '');
+      });
+      return;
+    }
+    const animate = (el) => {
+      const target = parseFloat(el.dataset.stat);
+      const decimals = (el.dataset.stat.split('.')[1] || '').length;
+      const suffix = el.dataset.suffix || '';
+      const duration = 1200;
+      const start = performance.now();
+      const ease = (t) => 1 - Math.pow(1 - t, 3);
+      const step = (now) => {
+        const t = Math.min((now - start) / duration, 1);
+        const v = target * ease(t);
+        el.textContent = v.toFixed(decimals) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = target.toFixed(decimals) + suffix;
+      };
+      requestAnimationFrame(step);
+    };
+    const so = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animate(e.target); so.unobserve(e.target); } });
+    }, {threshold: 0.4});
+    stats.forEach(el => so.observe(el));
+  })();
+
+  /* ─── Trusted contributors carousel ─── */
+  (function() {
+    const carousel = document.getElementById('sheikhCarousel');
+    if (!carousel) return;
+    const slides = carousel.querySelectorAll('.sheikh-slide');
+    const dots = carousel.querySelectorAll('.sheikh-dot');
+    const prev = carousel.querySelector('.sheikh-prev');
+    const next = carousel.querySelector('.sheikh-next');
+    if (!slides.length) return;
+
+    let idx = 0;
+    const total = slides.length;
+
+    const go = (n) => {
+      idx = ((n % total) + total) % total;
+      slides.forEach((s, i) => {
+        const active = i === idx;
+        s.classList.toggle('is-active', active);
+        s.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+      dots.forEach((d, i) => {
+        const active = i === idx;
+        d.classList.toggle('is-active', active);
+        d.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    };
+
+    prev.addEventListener('click', () => go(idx - 1));
+    next.addEventListener('click', () => go(idx + 1));
+    dots.forEach(d => d.addEventListener('click', () => go(parseInt(d.dataset.target, 10))));
+
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
+    });
+
+    /* Touch swipe */
+    let tx = 0, ty = 0;
+    carousel.addEventListener('touchstart', (e) => {
+      tx = e.touches[0].clientX; ty = e.touches[0].clientY;
+    }, {passive: true});
+    carousel.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - tx;
+      const dy = e.changedTouches[0].clientY - ty;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) go(idx + (dx < 0 ? 1 : -1));
+    }, {passive: true});
+  })();
+
+  /* ─── Final CTA pulse on viewport entry ─── */
+  (function() {
+    const btn = document.getElementById('ctaFinalBtn');
+    if (!btn || reduceMotion) return;
+    const po = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { btn.classList.add('pulse'); po.unobserve(btn); } });
+    }, {threshold: 0.6});
+    po.observe(btn);
+  })();
+
+  /* ─── Store modal (iOS / Android) ─── */
+  (function() {
+    const modal = document.getElementById('storeModal');
+    const closeBtn = document.getElementById('storeModalClose');
+    if (!modal) return;
+
+    function openModal(e) {
+      e.preventDefault();
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function closeModal() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-store-trigger]').forEach(el => {
+      el.addEventListener('click', openModal);
+    });
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+  })();
+
+})();
+</script>
+</body>
+</html>
